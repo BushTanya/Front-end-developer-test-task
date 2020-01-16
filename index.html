@@ -14,66 +14,64 @@
     </head>
     <body class="body">
         <div class="sidenav">
-            <div class="filter-title-container">
-                <div class="filter-title">
-                    <h6>Filters</h6>
-                </div>
-                <div class="filter-title close-icon">
+            <div class="filter-title-container">    
+				<h6 class="filter-title-container__title">Filters</h6>             
+                <div class="close-icon">
                     <a href="javascript:void(0)" onclick="closeNav()"><i class="fa fa-times icons"></i></a>
                 </div>
             </div>
-
-            <p class="filter-subtitle">NPS Group</p>
-            <label class="form-check"> Detractor
-                <input type="checkbox" id="detractor" checked="checked" onchange="getTilesData()">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="form-check"> Passive
-                <input type="checkbox" id="passive" onchange="getTilesData()">
-                <span class="checkmark"></span>
-            </label>
-
-            <label class="form-check"> Promoter
-                <input type="checkbox" id="promoter" onchange="getTilesData()">
-                <span class="checkmark"></span>
-            </label>
-
-            <p class="filter-subtitle">Product Group</p>
-            <label class="form-check"> Product Group A
-                <input type="radio" name="radio" id="product-a" checked="checked" onchange="getTilesData()">
-                <span class="radiobutton"></span>
-            </label>
-            <label class="form-check"> Product Group B
-                <input type="radio" name="radio" id="product-b" onchange="getTilesData()">
-                <span class="radiobutton"></span>
-            </label>
-            <label class="form-check"> Product Group C
-                <input type="radio" name="radio" id="product-c" onchange="getTilesData()">
-                <span class="radiobutton"></span>
-            </label>
-            <label class="form-check"> Product Group D
-                <input type="radio" name="radio" id="product-d" onchange="getTilesData()">
-                <span class="radiobutton"></span>
-            </label>  
+			<div class="filter">
+				<p class="filter__filter-subtitle">NPS Group</p>
+				<label class="form-check"> Detractor
+					<input type="checkbox" id="detractor" checked="checked" onchange="getTilesData()">
+					<span class="checkmark"></span>
+				</label>
+				<label class="form-check"> Passive
+					<input type="checkbox" id="passive" onchange="getTilesData()">
+					<span class="checkmark"></span>
+				</label>
+				<label class="form-check"> Promoter
+					<input type="checkbox" id="promoter" onchange="getTilesData()">
+					<span class="checkmark"></span>
+				</label>
+			</div>
+			<div class="filter">
+				<p class="filter-subtitle">Product Group</p>
+				<label class="form-check"> Product Group A
+					<input type="radio" name="radio" id="product-a" checked="checked" onchange="getTilesData()">
+					<span class="radiobutton"></span>
+				</label>
+				<label class="form-check"> Product Group B
+					<input type="radio" name="radio" id="product-b" onchange="getTilesData()">
+					<span class="radiobutton"></span>
+				</label>
+				<label class="form-check"> Product Group C
+					<input type="radio" name="radio" id="product-c" onchange="getTilesData()">
+					<span class="radiobutton"></span>
+				</label>
+				<label class="form-check"> Product Group D
+					<input type="radio" name="radio" id="product-d" onchange="getTilesData()">
+					<span class="radiobutton"></span>
+				</label>  
+			</div>
         </div>
         <div class="main-header">  
-            <object type="image/svg+xml" data="icon.svg" id="company-logo">
+            <object type="image/svg+xml" data="icon.svg" class="company-logo">
                Your browser does not support SVG
             </object>  
-            <ul id="pages-title">
+            <ul class="pages-title">
               <li><a href="index.html" class="active">Home</a></li>
               <li><a href="headlines.html">Headlines</a></li>
             </ul>            
         </div>
-        <div class="main" id="main">
+        <div class="main">
             <span onclick="openNav()" class="icons">
                 <i class="fa fa-angle-left"></i>
                 <i class="fa fa-filter"></i>
             </span>  
             <div>
-            <h5 id="home-main-title">Performance & Drivers</h5>
-            <div class="container" id="container">
+            <h5 class="home-main-title">Performance & Drivers</h5>
+            <div class="container">
                 <div class="flex-container1">
                     <div class="child1">
                         <h3 class="tile-title">NPS</h3>
