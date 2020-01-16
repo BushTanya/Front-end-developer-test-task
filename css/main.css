@@ -1,17 +1,16 @@
 .main {
   transition: margin-left .5s;
   padding: 10px 20px 20px 20px;
-  margin-top: 10px;
   position: fixed;
   top: 10%;
   height: 100%;
   width: 100%;
   background-color: rgb(242, 242, 242);
+  overflow: auto;
 }
 
-.home-main-title {
-  padding-top: 20px;
-  padding-bottom: 20px;
+.main__title {
+  padding: 20px 0px 20px;
 }
 
 /*top bar*/
@@ -32,19 +31,19 @@ li {
 }
 
 li a {
-  color: Black;
+  color: black;
 }
 
 li a:hover, .active {
   border-bottom: 2px solid LightBlue;
   padding-bottom: 10px;
   text-decoration: none;
-  color: Black;
+  color: black;
 
 }
 
 /*checkboxs and radiobuttons group*/ 
-.form-check {
+.filter-block__form-check {
   position: relative;
   display: block;
   margin-left: 10px;
@@ -52,7 +51,7 @@ li a:hover, .active {
   cursor: pointer;
 }
 
-.form-check input {
+.filter-block__form-check input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -69,8 +68,12 @@ li a:hover, .active {
   border-radius: 2px;
 }
 
-.form-check input:checked ~ .checkmark {
-  background-color: DarkGray;
+.label-title {
+	margin-left: 20px;
+}
+
+.filter-block__form-check input:checked ~ .checkmark {
+  background-color: darkgray;
 }
 
 .checkmark:after, .radiobutton:after {
@@ -79,11 +82,11 @@ li a:hover, .active {
   display: none;
 }
 
-.form-check input:checked ~ .checkmark:after, .form-check input:checked ~ .radiobutton:after {
+.filter-block__form-check input:checked ~ .checkmark:after, .filter-block__form-check input:checked ~ .radiobutton:after {
   display: block;
 }
 
-.form-check .checkmark:after {
+.filter-block__form-check .checkmark:after {
   left: 2px;
   top: 0px;
   width: 7px;
@@ -101,22 +104,22 @@ li a:hover, .active {
   left: 0px;
   height: 16px;
   width: 16px;
-  border: 2px solid Gray;
-  background-color:White;
+  border: 2px solid gray;
+  background-color: white;
   border-radius: 50%;
 }
 
-.form-check .radiobutton:after {
+.filter-block__form-check .radiobutton:after {
   left: 2px;
   top: 2px;
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: Gray;
+  background: gray;
 }
 
-.form-check input:checked ~ .radiobutton {
-  background-color: White;
+.filter-block__form-check input:checked ~ .radiobutton {
+  background-color: white;
 }
 
 /**filter's titles*/
@@ -124,7 +127,7 @@ li a:hover, .active {
   text-align: center;
   align-content: center;
   border-bottom-style: solid;
-  border-color: LightGray;
+  border-color: lightgray;
   border-width: 1px;
 }
 
@@ -132,8 +135,8 @@ li a:hover, .active {
   display: inline-block;
 }
 
-.filter__filter-subtitle {
-  margin: 20px 0px 5px 5px;
+.filter-block {
+	padding: 10px;
 }
 
 /*icons and logo*/
@@ -151,7 +154,7 @@ li a:hover, .active {
 
 .icons {
   font-size: 1em;
-  color: DarkGray;
+  color: darkgray;
   cursor: pointer;
 }
 
@@ -177,13 +180,12 @@ li a:hover, .active {
   z-index: 1;
   top: 10%;
   left: 0;
-  background-color: White;
+  background-color: white;
   overflow-x: hidden;
   padding-top: 10px;
-  margin-top: 10px;
   transition: 0.5s;
   border-top-style: solid;
-  border-color: LightGray;
+  border-color: lightgray;
   border-width: 1px;
 }
 
@@ -218,7 +220,7 @@ li a:hover, .active {
   .icons, .pages-title {
     display: none;
   }
-  .home-main-title {
+  .main__title {
     text-align: center;
   }
 }
@@ -258,7 +260,7 @@ th {
 }
 
 .result {
-  background-color: LightGray;
+  background-color: laghtgray;
   width: 40px;
   height: 25px;
   margin: 0 auto;
@@ -282,32 +284,32 @@ th {
 
 .child1 {
   background-color: White;
-  position: relative;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
   height: 192px; 
   width: 240px;
-  margin-right: 10px;
-  margin-bottom: 8px;
 }
 
 .child2 {
-  background-color: White;
+  background-color: white;
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
   height: 392px; 
-  width: 490px;
-  margin-right: 10px;
-  margin-bottom: 8px;
-  
+  width: 490px;  
+    flex-shrink: 1;
+}
+
+.child-panel {
+  padding: 0px 5px 5px;
+  position: relative;
 }
 
 .child1:hover, .child2:hover{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.container {
+.main__container {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -317,8 +319,7 @@ th {
 .tile-title {
   font-size: 18px;
   text-align: left;
-  margin-left: 10px;
-  margin-top: 10px;
+  padding: 10px;
 }
 
 .tile-data {
