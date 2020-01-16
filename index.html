@@ -13,49 +13,7 @@
         <script src="bootstrap-4.3.1/js/bootstrap.min.js"></script>
     </head>
     <body class="body">
-        <div class="sidenav">
-            <div class="filter-title-container">    
-				<h6 class="filter-title-container__title">Filters</h6>             
-                <div class="close-icon">
-                    <a href="javascript:void(0)" onclick="closeNav()"><i class="fa fa-times icons"></i></a>
-                </div>
-            </div>
-			<div class="filter">
-				<p class="filter__filter-subtitle">NPS Group</p>
-				<label class="form-check"> Detractor
-					<input type="checkbox" id="detractor" checked="checked" onchange="getTilesData()">
-					<span class="checkmark"></span>
-				</label>
-				<label class="form-check"> Passive
-					<input type="checkbox" id="passive" onchange="getTilesData()">
-					<span class="checkmark"></span>
-				</label>
-				<label class="form-check"> Promoter
-					<input type="checkbox" id="promoter" onchange="getTilesData()">
-					<span class="checkmark"></span>
-				</label>
-			</div>
-			<div class="filter">
-				<p class="filter-subtitle">Product Group</p>
-				<label class="form-check"> Product Group A
-					<input type="radio" name="radio" id="product-a" checked="checked" onchange="getTilesData()">
-					<span class="radiobutton"></span>
-				</label>
-				<label class="form-check"> Product Group B
-					<input type="radio" name="radio" id="product-b" onchange="getTilesData()">
-					<span class="radiobutton"></span>
-				</label>
-				<label class="form-check"> Product Group C
-					<input type="radio" name="radio" id="product-c" onchange="getTilesData()">
-					<span class="radiobutton"></span>
-				</label>
-				<label class="form-check"> Product Group D
-					<input type="radio" name="radio" id="product-d" onchange="getTilesData()">
-					<span class="radiobutton"></span>
-				</label>  
-			</div>
-        </div>
-        <div class="main-header">  
+		<div class="main-header">  
             <object type="image/svg+xml" data="icon.svg" class="company-logo">
                Your browser does not support SVG
             </object>  
@@ -64,83 +22,143 @@
               <li><a href="headlines.html">Headlines</a></li>
             </ul>            
         </div>
+        <div class="sidenav">
+            <div class="filter-title-container">    
+				<h6 class="filter-title-container__title">Filters</h6>             
+                <div class="close-icon">
+                    <a href="javascript:void(0)" onclick="closeNav()"><i class="fa fa-times icons"></i></a>
+                </div>
+            </div>
+			<div class="filter-panel">
+				<div class="filter-block filter-panel__block">
+					<p class="filter-block__subtitle">NPS Group</p> 
+					<label class="filter-block__form-check">
+						<input type="checkbox" id="detractor" checked="checked" onchange="getTilesData()">
+						<span class="checkmark"></span>
+						<span class="label-title">Detractor</span>
+					</label>
+					<label class="filter-block__form-check">
+						<input type="checkbox" id="passive" onchange="getTilesData()">
+						<span class="checkmark"></span>
+						<span class="label-title">Passive</span>
+					</label>
+					<label class="filter-block__form-check">
+						<input type="checkbox" id="promoter" onchange="getTilesData()">
+						<span class="checkmark"></span>
+						<span class="label-title">Promoter</span>
+					</label>
+				</div>
+				
+				<div class="filter-block filter-panel__block">
+					<p class="filter-block__subtitle"">Product Group</p>
+					<label class="filter-block__form-check"> 
+						<input type="radio" name="radio" id="product-a" checked="checked" onchange="getTilesData()">
+						<span class="radiobutton"></span>
+						<span class="label-title">Product Group A</span>
+					</label>
+					<label class="filter-block__form-check"> 
+						<input type="radio" name="radio" id="product-b" onchange="getTilesData()">
+						<span class="radiobutton"></span>
+						<span class="label-title">Product Group B</span>
+					</label>
+					<label class="filter-block__form-check"> 
+						<input type="radio" name="radio" id="product-c" onchange="getTilesData()">
+						<span class="radiobutton"></span>
+						<span class="label-title">Product Group C</span>
+					</label>
+					<label class="filter-block__form-check"> 
+						<input type="radio" name="radio" id="product-d" onchange="getTilesData()">
+						<span class="radiobutton"></span>
+						<span class="label-title">Product Group D</span>
+					</label> 
+				</div>
+			</div>
+        </div>
         <div class="main">
-            <span onclick="openNav()" class="icons">
+            <span onclick="openNav()" class="main__icons icons">
                 <i class="fa fa-angle-left"></i>
                 <i class="fa fa-filter"></i>
             </span>  
-            <div>
-            <h5 class="home-main-title">Performance & Drivers</h5>
-            <div class="container">
+            <h5 class="main__title">Performance & Drivers</h5>
+            <div class="main__container">
                 <div class="flex-container1">
-                    <div class="child1">
-                        <h3 class="tile-title">NPS</h3>
-                        <p id="nps-average" class="tile-data"></p>
+                    <div class="child-panel">
+						<div class="child1">
+							<h3 class="tile-title">NPS</h3>
+							<p id="nps-average" class="tile-data"></p>
+						</div>
                     </div>
-                    <div class="child1">
-                        <h3 class="tile-title">Easy</h3>
-                        <p id="easy-average" class="tile-data"></p>
+                    <div class="child-panel">
+						<div class="child1">
+							<h3 class="tile-title">Easy</h3>
+							<p id="easy-average" class="tile-data"></p>
+						</div>
                     </div>
-                    <div class="child1">
-                        <h3 class="tile-title">Overall Satisfaction</h3>
-                        <p id="osat-average" class="tile-data"></p>
+                    <div class="child-panel">
+						<div class="child1">
+							<h3 class="tile-title">Overall Satisfaction</h3>
+							<p id="osat-average" class="tile-data"></p>
+						</div>
                     </div> 
-                    <div class="child1">
-                        <h3 class="tile-title">Likely To Renew</h3>
-                        <p id="ltr-average" class="tile-data"></p>
+                    <div class="child-panel">
+						<div class="child1">
+							<h3 class="tile-title">Likely To Renew</h3>
+							<p id="ltr-average" class="tile-data"></p>
+						</div>
                     </div>
-               </div>
-               <div class="flex-container2">
-                    <div class="child2">
-                        <h3 class="tile-title">Team Performance</h3>
-                        <table id="team-perf-table">
-                            <tr>
-                                <th><a href="javascript:void(0)" onclick="sortTableAlphabetically()"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
-                                <th class="table-header" onclick="sortTableOsat()">Overall <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-                                <th class="table-header" onclick="sortTableRsp()">Responsiveness <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-                                <th class="table-header" onclick="sortTablePrd()">Product knowledge <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-                            </tr>
-                            <tr>
-                                <th class="title-th">Global</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <th class="title-th">EMEA</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <th class="title-th">Canada</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <th class="title-th">United States</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
+				</div>
+				<div class="flex-container2">
+					<div class="child-panel">
+						<div class="child2">
+							<h3 class="tile-title">Team Performance</h3>
+							<table id="team-perf-table">
+								<tr>
+									<th><a href="javascript:void(0)" onclick="sortTableAlphabetically()"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
+									<th class="table-header" onclick="sortTableOsat()">Overall <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+									<th class="table-header" onclick="sortTableRsp()">Responsiveness <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+									<th class="table-header" onclick="sortTablePrd()">Product knowledge <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+								</tr>
+								<tr>
+									<th class="title-th">Global</th>
+									<th></th>
+									<th></th>
+									<th></th>
+								</tr>
+								<tr>
+									<th class="title-th">EMEA</th>
+									<th></th>
+									<th></th>
+									<th></th>
+								</tr>
+								<tr>
+									<th class="title-th">Canada</th>
+									<th></th>
+									<th></th>
+									<th></th>
+								</tr>
+								<tr>
+									<th class="title-th">United States</th>
+									<th></th>
+									<th></th>
+									<th></th>
+								</tr>
+								<tr>
                                 <th class="title-th">APAC</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
-                            </tr>
-                            <tr>
-                                <th class="title-th">S. America</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </table>
-                    </div>
+								</tr>
+								<tr>
+									<th class="title-th">S. America</th>
+									<th></th>
+									<th></th>
+									<th></th>
+								</tr>
+							</table>
+						</div>
+					</div>
                 </div>
             </div>
-        </div>
         <script src="data.json"></script>
         <script src="methods.js"></script>
         <script>
