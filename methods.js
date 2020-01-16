@@ -156,13 +156,13 @@ function sortTablePrd() {
     ascPrdSort = sortTable(3, ascPrdSort);
 }
 function openNav() {
-    document.getElementById("filterNav").style.width = "200px";
-    document.getElementById("main").style.marginLeft = "200px";
-    document.getElementById("container").style.marginLeft = "0";
-    document.getElementById("container").style.justifyContent  = "start";
+    document.getElementsByClassName("sidenav")[0].style.width = "200px";
+    document.getElementsByClassName("main")[0].style.marginLeft = "200px";
+    document.getElementsByClassName("container")[0].style.marginLeft = "0";
+    document.getElementsByClassName("container")[0].style.justifyContent  = "start";
 }
 function closeNav() {
-    document.getElementById("filterNav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-    document.getElementById("container").style.justifyContent  = "center";           
+    document.getElementsByClassName("sidenav")[0].style.width = "0";
+    document.getElementsByClassName("main")[0].style.marginLeft = "0";
+    document.getElementsByClassName("container").style.justifyContent  = "center";           
 }
