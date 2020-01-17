@@ -21,7 +21,7 @@ function getTilesData() {
         tableValues[i][3] = getAverage("prd", regions[i]);
     }
 
-    var table = document.getElementById("team-perf-table");
+    var table = document.getElementsByClassName("team-perf-table")[0];
     var rows = table.rows;
 
     for (let i = 1; i < rows.length; i++) {
@@ -39,7 +39,7 @@ function getTilesData() {
 
 }
 function setSortedTable(sortedTable) {
-    var table = document.getElementById("team-perf-table");
+    var table = document.getElementsByClassName("team-perf-table")[0];
     var rows = table.rows;
 
     for (let i = 1; i < rows.length; i++) {
