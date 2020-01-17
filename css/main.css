@@ -1,6 +1,6 @@
 .main {
   transition: margin-left .5s;
-  padding: 10px 20px 20px 20px;
+  padding: 10px 20px 20px;
   position: fixed;
   top: 10%;
   height: 100%;
@@ -228,11 +228,7 @@ li a:hover, .active {
 /*table styles*/
 table {
   border-collapse: collapse;
-  position: absolute;
   margin: 20px;
-  width: 80%;
-  top: 15%;
-  left: 5%;
   border-spacing: 5px;
 }
 
@@ -279,7 +275,6 @@ th {
 .flex-container2 {
   display:  inline-flex;
   flex-flow: row wrap;
-  justify-content: center;
 }
 
 .child1 {
@@ -292,11 +287,9 @@ th {
 
 .child2 {
   background-color: white;
-  position: relative;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
-  height: 392px; 
-  width: 490px; 
+  height: 392px;  
 }
 
 .child-panel {
