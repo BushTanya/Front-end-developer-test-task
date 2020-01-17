@@ -64,7 +64,7 @@ li a:hover, .active {
   height: 16px;
   width: 16px;
   background-color: White;
-  border: 2px solid Gray;
+  border: 2px solid gray;
   border-radius: 2px;
 }
 
@@ -159,7 +159,7 @@ li a:hover, .active {
 }
 
 .icons:hover {
-  color: Gray;
+  color: gray;
 }
 
 .close-icon {
@@ -260,7 +260,7 @@ th {
 }
 
 .result {
-  background-color: laghtgray;
+  background-color: lightgray;
   width: 40px;
   height: 25px;
   margin: 0 auto;
@@ -296,8 +296,7 @@ th {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
   height: 392px; 
-  width: 490px;  
-    flex-shrink: 1;
+  width: 490px; 
 }
 
 .child-panel {
