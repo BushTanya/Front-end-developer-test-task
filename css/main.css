@@ -136,7 +136,7 @@ li a:hover, .active {
 }
 
 .filter-block {
-	padding: 10px;
+  padding: 10px;
 }
 
 /*icons and logo*/
@@ -227,9 +227,7 @@ li a:hover, .active {
 
 /*table styles*/
 table {
-  border-collapse: collapse;
   margin: 20px;
-  border-spacing: 5px;
 }
 
 th {
@@ -252,7 +250,28 @@ th {
 
 .table-header:hover .sort-icon {
   display: inline;
+}
+	
+.headcol {
 
+}
+
+.column1{
+  flex: 1;
+
+}
+
+.column2 {
+  flex: 1;
+}
+
+
+.table-wrap {  
+  overflow-x: auto;
+  margin: auto;
+  max-width: 100%;
+  display: block;
+  width: fit-content;
 }
 
 .result {
@@ -268,8 +287,7 @@ th {
 .flex-container1 {
   display:  inline-flex;
   flex-flow: row wrap;
-  max-width: 500px;
-  justify-content: center;
+  width:100%;
 }
 
 .flex-container2 {
@@ -278,23 +296,30 @@ th {
 }
 
 .child1 {
-  background-color: White;
+  background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
   height: 192px; 
-  width: 240px;
+  flex: 0 1 50%;
+  padding: 0px 10px 5px;
 }
 
 .child2 {
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
-  height: 392px;  
+  height: 388px;   
 }
 
-.child-panel {
-  padding: 0px 5px 5px;
+.child-panel1 {
+
   position: relative;
+  display: flex;
+}
+
+.child-panel2 {
+  padding: 0px 5px 5px;
+  display: flex;
 }
 
 .child1:hover, .child2:hover{
