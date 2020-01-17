@@ -304,7 +304,6 @@ th {
 .main__container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
 }
 
 /*tiles styles*/
