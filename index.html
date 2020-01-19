@@ -81,37 +81,39 @@
             </span>  
             <h5 class="main__title">Performance & Drivers</h5>
             <div class="main__container">
-                <div class="flex-container1">
-				<div class="column1">
-                    <div class="child-panel1">
-						<div class="child1">
-							<h3 class="tile-title child1__tile-title">NPS</h3>
-							<p id="nps-average" class="tile-data child1__tile-data"></p>
+                <div class="flex-container">	
+                	<div class="small-tiles-container">
+                    	<div class="small-tile">
+							<div class="small-tile-info">
+								<h3 class="tile-title">NPS</h3>
+								<p id="nps-average" class="tile-data"></p>
+							</div>
+                   		</div>
+                   		<div class="small-tile">
+							<div class="small-tile-info">
+								<h3 class="tile-title">Easy</h3>
+								<p id="easy-average" class="tile-data"></p>
+							</div>
 						</div>
-                   
-						<div class="child1">
-							<h3 class="tile-title child1__tile-title">Easy</h3>
-							<p id="easy-average" class="tile-data child1__tile-data"></p>
-						</div>
-                    </div>
-                    <div class="child-panel1">
-						<div class="child1">
-							<h3 class="tile-title child1__tile-title">Overall Satisfaction</h3>
-							<p id="osat-average" class="tile-data child1__tile-data"></p>
-						</div>
-               
-						<div class="child1">
-							<h3 class="tile-title child1__tile-title">Likely To Renew</h3>
-							<p id="ltr-average" class="tile-data child1__tile-data"></p>
+                    
+						<div class="small-tile">
+							<div class="small-tile-info">
+								<h3 class="tile-title">Overall Satisfaction</h3>
+								<p id="osat-average" class="tile-data"></p>
+							</div>
+						</div>          
+						<div class="small-tile">
+							<div class="small-tile-info">
+								<h3 class="tile-title">Likely To Renew</h3>
+								<p id="ltr-average" class="tile-data"></p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="column2">
-					<div class="child-panel2">
-						<div class="child2">
-							<h3 class="tile-title child2__tile-data">Team Performance</h3>						
+					<div class="big-tile">
+						<div class="big-tile-info">
+							<h3 class="tile-title">Team Performance</h3>						
 								<div class="table-wrap">
-									<table class="team-perf-table child2__team-perf-table">
+									<table class="team-perf-table">
 										<tr>
 											<th class="headcol"><a href="javascript:void(0)" onclick="sortTableAlphabetically()"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
 											<th class="table-header" onclick="sortTableOsat()">Overall <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
@@ -155,7 +157,6 @@
 											<th></th>
 										</tr>
 									</table>								
-							</div>
 							</div>
 						</div>
 					</div>
