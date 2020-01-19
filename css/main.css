@@ -214,7 +214,7 @@ li a:hover, .active {
   .sidenav {
     display: none;
   }
-  .child1, .child2 {
+  .small-tile, .big-tile {
       border: 2px solid rgb(0, 0, 0);
   }
   .icons, .pages-title {
@@ -256,16 +256,6 @@ th {
 
 }
 
-.column1{
-  flex: 1;
-
-}
-
-.column2 {
-  flex: 1;
-}
-
-
 .table-wrap {  
   overflow-x: auto;
   margin: auto;
@@ -284,45 +274,48 @@ th {
 }
 
 /*flex containers*/
-.flex-container1 {
+.flex-container {
   display:  inline-flex;
   flex-flow: row wrap;
-  width:100%;
+  width: 80%;
+
 }
 
-.flex-container2 {
+.small-tiles-container {
   display:  inline-flex;
   flex-flow: row wrap;
+  width: 450px;
+  justify-content: center;
 }
 
-.child1 {
+.small-tile-info {
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
-  height: 192px; 
-  flex: 0 1 50%;
-  padding: 0px 10px 5px;
+  min-width: 200px;
+  height: 192px;
+  line-height: 100px;
+  text-align: center;
 }
 
-.child2 {
+.big-tile-info {
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
-  height: 388px;   
+  height: 388px;
 }
 
-.child-panel1 {
-
-  position: relative;
-  display: flex;
-}
-
-.child-panel2 {
+.small-tile {
   padding: 0px 5px 5px;
-  display: flex;
+
 }
 
-.child1:hover, .child2:hover{
+.big-tile {
+  justify-content: center;
+  padding: 0px 5px 5px;
+}
+
+.small-tile-info:hover, .big-tile-info:hover{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
@@ -339,10 +332,5 @@ th {
 }
 
 .tile-data {
-  position: absolute;
   font-size: 20px;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
