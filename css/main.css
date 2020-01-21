@@ -6,7 +6,7 @@
   height: 100%;
   width: 100%;
   background-color: rgb(242, 242, 242);
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .main__title {
@@ -215,7 +215,7 @@ li a:hover, .active {
     display: none;
   }
   .small-tile, .big-tile {
-      border: 2px solid rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
   }
   .icons, .pages-title {
     display: none;
@@ -227,19 +227,17 @@ li a:hover, .active {
 
 /*table styles*/
 table {
-  margin: 20px;
+  width: 100%;  
 }
 
 th {
-  width: 110px;
   font-size: 12px;
   padding: 2px;
-  text-align: center;
   align-content: center
 }
 
 .title-th {
-   text-align: start;
+  text-align: start;
 }
 
 .table-header {
@@ -252,16 +250,11 @@ th {
   display: inline;
 }
 	
-.headcol {
-
-}
-
 .table-wrap {  
   overflow-x: auto;
-  margin: auto;
-  max-width: 100%;
-  display: block;
-  width: fit-content;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-left: 7em;
 }
 
 .result {
@@ -273,19 +266,24 @@ th {
   text-align: center;
 }
 
+.headcol {
+  position: absolute;
+  width: 7em;
+  left: 20px;
+}
+
 /*flex containers*/
 .flex-container {
-  display:  inline-flex;
+  display: flex;
   flex-flow: row wrap;
   width: 80%;
-
+  margin: auto;
 }
 
 .small-tiles-container {
-  display:  inline-flex;
-  flex-flow: row wrap;
-  width: 450px;
-  justify-content: center;
+  display:  flex;
+  flex-flow: column nowrap;
+  flex: 1;
 }
 
 .small-tile-info {
@@ -302,17 +300,20 @@ th {
   background-color: white;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
+  position: relative;
+  min-width: 200px;
   height: 388px;
 }
 
 .small-tile {
   padding: 0px 5px 5px;
-
+  flex: 1;
 }
 
 .big-tile {
-  justify-content: center;
   padding: 0px 5px 5px;
+  overflow: auto;
+  flex: 1 1 30%;
 }
 
 .small-tile-info:hover, .big-tile-info:hover{
@@ -320,8 +321,7 @@ th {
 }
 
 .main__container {
-  display: flex;
-  flex-flow: row wrap;
+  justify-content: center;
 }
 
 /*tiles styles*/
