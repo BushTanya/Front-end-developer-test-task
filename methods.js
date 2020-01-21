@@ -157,12 +157,12 @@ function sortTablePrd() {
 }
 function openNav() {
     document.getElementsByClassName("sidenav")[0].style.width = "200px";
+	document.getElementsByClassName("flex-container")[0].style.margin = "0";
     document.getElementsByClassName("main")[0].style.marginLeft = "200px";
-    document.getElementsByClassName("main__container")[0].style.marginLeft = "0";
-    document.getElementsByClassName("main__container")[0].style.justifyContent  = "start";
+
 }
 function closeNav() {
     document.getElementsByClassName("sidenav")[0].style.width = "0";
     document.getElementsByClassName("main")[0].style.marginLeft = "0";
-    document.getElementsByClassName("main__container")[0].style.justifyContent  = "center";           
+    document.getElementsByClassName("flex-container")[0].style.margin  = "auto";           
 }
