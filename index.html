@@ -14,14 +14,52 @@
     </head>
     <body class="body">
 		<div class="main-header">  
-            <object type="image/svg+xml" data="icon.svg" class="company-logo">
-               Your browser does not support SVG
-            </object>  
-            <ul class="pages-title">
-              <li><a href="index.html" class="active">Home</a></li>
-              <li><a href="headlines.html">Headlines</a></li>
-            </ul>            
+				<!--
+				<object type="image/svg+xml" data="icon.svg" class="company-logo">
+				   Your browser does not support SVG
+				</object>  
+				-->
+				<div class="burger-menu__button" onclick="openMenu()">
+					<span class="burger-menu__button-title">Menu</span>
+					<span class="burger-menu__button-icon icons">
+						<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+					</span>
+				</div>
+								
+				
+					<ul class="pages-titles">
+						<li class="active pages-titles__link"><a href="index.html" >Home</a></li>
+						<li class="pages-titles__link"><a href="headlines.html">Headlines</a></li>
+						<li class="pages-titles__link"><a href="page1.html">Page 1</a></li>
+						<li class="pages-titles__link"><a href="page2.html">Page 2</a></li>
+						<li class="pages-titles__link"><a href="page3.html">Page 3</a></li>
+						<li class="pages-titles__link"><a href="page4.html">Page 4</a></li>
+						<li class="pages-titles__link"><a href="page5.html">Page 5</a></li>
+						<li class="more">
+							<!--<a href="javascript:void(0)" class="dropbtn">More <i class="fa fa-angle-down" aria-hidden="true"> </i></a>
+							<div class="dropdown-content">
+							</div>-->
+							More <i class="fa fa-angle-down" aria-hidden="true"> </i>
+						</li>
+					</ul>
+					<ul class="overflow">
+					</ul>
+				        
+					
         </div>
+		<div class="burger-menu">		
+			<nav class="burger-menu__nav"> 
+				 <div class="burger-menu__close">
+					<a href="javascript:void(0)" onclick="closeMenu()"><i class="fa fa-times fa-2x close__icon"></i></a>
+				</div>
+				<a href="index.html" class="burger-menu__link active-link">Home</a>
+				<a href="headlines.html" class="burger-menu__link">Headlines</a>
+				<a href="page1.html" class="burger-menu__link">Page 1</a>
+				<a href="page2.html" class="burger-menu__link">Page 2</a>
+				<a href="page3.html" class="burger-menu__link">Page 3</a>
+			</nav>
+
+		</div>
         <div class="sidenav">
             <div class="filter-title-container">    
 				<h6 class="filter-title-container__title">Filters</h6>             
@@ -110,54 +148,56 @@
 							</div>
 						</div>
 					</div>
-					<div class="big-tile">
-						<div class="big-tile-info">
-							<h3 class="tile-title big-tile-info__title">Team Performance</h3>						
-							<div class="table-wrap big-tile-info__table">
-								<table class="team-perf-table">						
-									<tr>
-										<th class="headcol"><a href="javascript:void(0)" onclick="sortTableAlphabetically()"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
-										<th class="table-header" onclick="sortTableOsat()">Overall <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-										<th class="table-header" onclick="sortTableRsp()">Responsiveness<i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-										<th class="table-header" onclick="sortTablePrd()">Product knowledge <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-									</tr>								
-									<tr>
-										<th class="title-th headcol">Global</th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-									<tr>
-										<th class="title-th headcol">EMEA</th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-									<tr>
-										<th class="title-th headcol">Canada</th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-									<tr>
-										<th class="title-th headcol">United States</th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-									<tr>
-										<th class="title-th headcol">APAC</th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>
-									<tr>
-										<th class="title-th headcol">S. America</th>
-										<th></th>
-										<th></th>
-										<th></th>
-									</tr>								
-								</table>								
+					<div class="big-tile-container">
+						<div class="big-tile">
+							<div class="big-tile-info">
+								<h3 class="tile-title big-tile-info__title">Team Performance</h3>						
+								<div class="table-wrap big-tile-info__table">
+									<table class="team-perf-table">						
+										<tr>
+											<th class="headcol"><a href="javascript:void(0)" onclick="sortTableAlphabetically()"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
+											<th class="table-header" onclick="sortTableOsat()">Overall <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+											<th class="table-header" onclick="sortTableRsp()">Responsiveness<i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+											<th class="table-header" onclick="sortTablePrd()">Product knowledge <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+										</tr>								
+										<tr>
+											<th class="title-th headcol">Global</th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th class="title-th headcol">EMEA</th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th class="title-th headcol">Canada</th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th class="title-th headcol">United States</th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th class="title-th headcol">APAC</th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>
+										<tr>
+											<th class="title-th headcol">S. America</th>
+											<th></th>
+											<th></th>
+											<th></th>
+										</tr>								
+									</table>								
+								</div>
 							</div>
 						</div>
 					</div>
@@ -171,10 +211,160 @@
             var dataLength = Object.keys(data).length;
             var regions = ["Global", "EMEA", "Canada", "United States", "APAC", "S. America"];
             var tableValues = new Array(regions.length);
-            var ascAlphSort = false, ascOsatSort = false, ascRspSort = false, ascPrdSort = false;
-
+            var ascAlphSort = false, ascOsatSort = false, ascRspSort = false, ascPrdSort = false;	
+			/*
+			var ul = getUL();	
+			var ulCopy = getUL();			
+			
+			var logoWidth = document.getElementsByClassName("company-logo")[0].offsetWidth;
+			
+			var dropdownMenu = document.getElementsByClassName("dropdown-content")[0]; 
+			var dropdown = document.getElementsByClassName("dropdown")[0]; 
+			var navTitles = document.getElementsByClassName("pages-titles")[0];
+			
+			var mainheaderWidth = document.getElementsByClassName("main-header")[0].offsetWidth;
+			
+			function checkTitlesCapacity() {	
+				//var mainheaderWidth = document.getElementsByClassName("main-header")[0].offsetWidth;
+				
+				//alert(mainheaderWidth);
+				let curWidth = getULWidth();// + logoWidth;			
+				//alert(curWidth);
+				//alert(navTitles.offsetWidth);
+				let windowWidth = window.innerWidth;
+				
+				let isFirst = 0;
+				while (curWidth > windowWidth) {	
+					let appIndex = getAppendingElemIndex();
+					alert(appIndex);
+					dropdownMenu.append(ul[appIndex]);
+					dropdownMenu.lastElementChild.style.display = "inline";									
+					ul[appIndex].style.display = "none";
+									
+					if (isFirst == 0 && appIndex > 1) {
+						dropdownMenu.append(ul[appIndex-1]);
+						dropdownMenu.lastElementChild.style.display = "inline";	
+						dropdown.style.display = "inline-block";
+						ul[appIndex-1].style.display = "none";
+					}
+																
+					curWidth = getULWidth();
+					isFirst = 1;
+				}
+				
+				while (curWidth < windowWidth) {
+					let finishingPoint = ul.length;
+				
+					for (let j = 0; j < ul.length; j++) {
+						if (ul[j].style.display == "none") {
+							finishingPoint = j;
+	
+							//alert(finishingPoint);
+							//let li = document.createElement('li');
+							//alert(ul[j].innerHTML);	
+							navTitles.insertBefore(ul[j], dropdown);						
+							ul[j].style.display = "inline";
+							break;
+						}
+					}
+					
+					if (finishingPoint == ul.length)
+						break;
+						
+					curWidth = getULWidth();
+											
+				}	
+					
+			}
+			
+			function getAppendingElemIndex() {
+				for (let i = 1; i < ul.length; i++) {
+					if (ul[i].style.display == "none") {
+						return i - 1;
+					}
+				}
+				
+				return ul.length - 1;
+			}
+			
+			function getUL() {
+				let ul = document.getElementsByClassName("pages-titles__link");			
+				//ul.insertBefore(dropdown, ul[ul.length-1].nextSibling);
+				return ul;
+			}
+			
+			function getULWidth() {	
+				/*let width = 0;
+				for (let i = 0; i < ul.length; i++) {
+					if (ul[i].style.display != "none")
+						width = width + ul[i].offsetWidth;
+				}
+				return width;*/
+			/*	
+				return document.getElementsByClassName("main-header")[0].offsetWidth;
+			}
+						
+			window.addEventListener("resize", checkTitlesCapacity);    		
+			checkTitlesCapacity();
+			*/
             getTilesData();
+			
+			
+			$(document).ready(function(){
+				var item_width = $('.pages-titles li').width();
+				var item_count = ($( '.pages-titles li' ).length);
+				
+				var nav_width_og = $(".main-header").width();
+				var nav_width = $(".main-header").width();
+				  
+				if ((item_width * (item_count + 1)) > nav_width ){
+					$('.more').appendTo('body');
+					$('.more').hide();
+				}
+				  
+				for (let i = 0; i < item_count; i++) {
+					nav_width = $('.main-header').width();
+					item_width = $('.pages-titles li').width();
+					item_count = ($('.pages-titles li').length); 
+				   
+					if (nav_width < (item_width * item_count)) {
+						$('.pages-titles li').not('.more').last().appendTo($('.overflow'));
+				  
+						$('.more').appendTo($('.pages-titles'));
+						$('.more').show();
+					}
+				}
 
+				 
+				$(window).resize(function() { 			  
+					nav_width = $('.main-header').width();
+					item_width = $('.pages-titles li').width();
+					item_count = ($('.pages-titles li' ).length);
+
+					if (nav_width < (item_width * item_count)){
+						$('.pages-titles li').not('.more').last().appendTo($('.overflow'));
+					  
+						$('.more').appendTo($('.pages-titles'));
+						$('.more').show();
+					}
+				  
+					if (nav_width > (item_width * item_count) + (item_width - 1)) {
+					 $('.overflow li').last().appendTo($('.pages-titles'));
+					  
+					  $('.more').appendTo($('.pages-titles'));
+					}
+				   
+					if (nav_width == nav_width_og ){
+						$('.more').appendTo('body');
+						$('.more').hide();
+					}
+				  
+				});
+				  
+				$('.more').click(function() {
+				   $('.overflow').slideToggle(); 
+				});
+			});
         </script>
     </body>
 </html>
