@@ -14,42 +14,35 @@
     </head>
     <body class="body">
 		<div class="main-header">  			
-				<object type="image/svg+xml" data="icon.svg" class="company-logo">
-				   Your browser does not support SVG
-				</object>  
-				
-				<div class="burger-menu__button" onclick="openMenu()">
-					<span class="burger-menu__button-title">Menu</span>
-					<span class="burger-menu__button-icon icons">
-						<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
-					</span>
-				</div>							
-				<nav class='nav_titles'>
-				  <ul class='pages-titles'>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="index.html">Headlines</a></li>
-					<li><a href="index.html">QWERTYUIOPQWERTYUIOPQWERTYUIOPQWWERTTYUUIOP</a></li>
-					<li><a href="index.html">Page 2</a></li>
-					<li><a href="index.html">Page 3</a></li>
-					<li><a href="index.html">Page 4</a></li>
-					<li><a href="index.html">Page 5</a></li>
-				  </ul>
-				  <button>More <i class="fa fa-angle-down" aria-hidden="true"> </i> </button>
-				  <ul class='overflow hidden'></ul>
-				</nav>		
+			<object type="image/svg+xml" data="icon.svg" class="company-logo">
+			   Your browser does not support SVG
+			</object>  			
+			<div class="burger-menu__button" onclick="openMenu()">
+				<span class="burger-menu__button-title">Menu</span>
+				<span class="burger-menu__button-icon icons">
+					<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+				</span>
+			</div>							
+			<nav class='nav_titles'>
+			  <ul class='pages-titles'>
+				<li><a href="index.html" class="active-link">Home</a></li>
+				<li><a href="index.html" class="unactive-link">Headlines</a></li>
+				<li><a href="index.html" class="unactive-link">QWERTYUIOPQWERTYUIOPQWE</a></li>
+				<li><a href="index.html" class="unactive-link">Page 2</a></li>
+				<li><a href="index.html" class="unactive-link">Page 3</a></li>
+				<li><a href="index.html" class="unactive-link">Page 4</a></li>
+				<li><a href="index.html" class="unactive-link">Page 5</a></li>
+			  </ul>
+			  <button>More <i class="fa fa-angle-down" aria-hidden="true"> </i> </button>
+			  <ul class='overflow hidden'></ul>
+			</nav>		
         </div>
 		<div class="burger-menu">		
 			<ul class="burger-menu__nav"> 
 				 <div class="burger-menu__close">
 					<a href="javascript:void(0)" onclick="closeMenu()"><i class="fa fa-times fa-2x close__icon"></i></a>
 				</div>
-				<!--<a href="index.html" class="burger-menu__link active-link">Home</a>
-				<a href="headlines.html" class="burger-menu__link">Headlines</a>
-				<a href="page1.html" class="burger-menu__link">Page 1</a>
-				<a href="page2.html" class="burger-menu__link">Page 2</a>
-				<a href="page3.html" class="burger-menu__link">Page 3</a>-->
 			</ul>
-
 		</div>
         <div class="sidenav">
             <div class="filter-title-container">    
@@ -205,113 +198,61 @@
             var ascAlphSort = false, ascOsatSort = false, ascRspSort = false, ascPrdSort = false;	
 
             getTilesData();
-			/*	
-			$(document).ready(function(){
-				//$('.pages-titles li').not('.more').clone().appendTo($('.burger-menu__nav'));
-				//$('.burger-menu__nav li').addClass('burger-menu__link');
-				//$('.burger-menu__nav li').removeClass('pages-titles__link');
-				
-				var title_width = $('.pages-titles li').width();
-				var title_count = $('.pages-titles li').length;
-				
-				var nav_width_start = $(".main-header").width();
-				var nav_width = $(".main-header").width();
-						
-				if (nav_width < (title_width * (title_count + 1)) ){
-					$('.more').appendTo('.pages-titles');
-					$('.more').hide();
-				}
-				
-				while (nav_width < title_width * (title_count + 1)) {
-					$('.pages-titles li').not('.more').last().appendTo($('.overflow'));			  
-					$('.more').appendTo($('.pages-titles'));
-					$('.more').show();
-					
-					nav_width = $('.main-header').width();
-					title_width = $('.pages-titles li').width();
-					title_count = $('.pages-titles li').length; 									
-				}
-				 
-				$(window).resize(function() { 			  
-					nav_width = $('.main-header').width();
-					title_width = $('.pages-titles li').width();
-					title_count = $('.pages-titles li').length;
-				
-					if (nav_width < (title_width * title_count)){
-						$('.pages-titles li').not('.more').last().appendTo($('.overflow'));
-					
-						$('.more').appendTo($('.pages-titles'));
-						$('.more').show();
-					}
-						
-					if (nav_width > title_width * title_count + title_width) {
-						$('.overflow li').last().appendTo($('.pages-titles'));			  
-						$('.more').appendTo($('.pages-titles'));
-					}
-				
-				   
-					if (nav_width == nav_width_start ){
-						$('.more').appendTo('.main-header');
-						$('.more').hide();
-					}
-										  
-				});
-				  
-				$('.more').click(function() {
-				   $('.overflow').slideToggle(); 
-				});
-			});*/
 			
 			$(function() {
-			  var $nav = $('.nav_titles');
-			  var $btn = $('.nav_titles button');
-			  var $vlinks = $('.nav_titles .pages-titles');
-			  var $hlinks = $('.nav_titles .overflow');
-
-			  var numOfItems = 0;
-			  var totalSpace = 0;
-			  var breakWidths = [];
-
-			  $vlinks.children().outerWidth(function(i, w) {
-				totalSpace += w;
-				numOfItems += 1;
-				breakWidths.push(totalSpace);
-			  });
-
-			  var availableSpace, numOfVisibleItems, requiredSpace;
-
-			  function check() {
-				availableSpace = $vlinks.width() - 10;
-				numOfVisibleItems = $vlinks.children().length;
-				requiredSpace = breakWidths[numOfVisibleItems - 1];
+				$('.pages-titles li').clone().appendTo($('.burger-menu__nav'));
+				$('.burger-menu__nav li').addClass('burger-menu__link');
+				$('.burger-menu__nav li').removeClass('pages-titles__link');
 				
-				if (requiredSpace > availableSpace) {
-				  $vlinks.children().last().prependTo($hlinks);
-				  numOfVisibleItems -= 1;
-				  check();
-				  
-				} 
-				else 
-					if (availableSpace > breakWidths[numOfVisibleItems]) {
-					  $hlinks.children().first().appendTo($vlinks);
-					  numOfVisibleItems += 1;
-					}
-				if (numOfItems == numOfVisibleItems)
-					$btn.hide();
-				else 
-					$btn.show();
+				var $nav = $('.nav_titles');
+				var $more_btn = $('.nav_titles button');
+			  
+				var $titles = $('.nav_titles .pages-titles');
+				var $overflow = $('.nav_titles .overflow');
+
+				var titlesAmount = 0;
+				var totalSpace = 0;
+				var widths = [];
+
+				$titles.children().outerWidth(function(i, w) {
+					totalSpace += w;
+					titlesAmount += 1;
+					widths.push(totalSpace);
+				});
+
+				var availableSpace, visibleTitles, requiredSpace;
+
+				function checkTitlesWidths() {
+					availableSpace = $titles.width();
+					visibleTitles = $titles.children().length;
+					requiredSpace = widths[visibleTitles - 1];			
+									
+					if (titlesAmount == visibleTitles)
+						$more_btn.hide();
+					else 
+						$more_btn.show();
+				
+					if (requiredSpace > availableSpace) {
+						$titles.children().last().prependTo($overflow);
+						visibleTitles -= 1;
+						checkTitlesWidths();			  
+					} 
+					else 
+						if (availableSpace > widths[visibleTitles]) {
+							$overflow.children().first().appendTo($titles);
+							visibleTitles += 1;
+						}
 				}
 
-			  $(window).resize(function() {
-				check();
-			  });
+				$(window).resize(function() {
+					checkTitlesWidths();
+				});
 
-			  $btn.on('click', function() {			
-					$hlinks.toggleClass('hidden');
-			  });
+				$more_btn.on('click', function() {			
+					$overflow.toggleClass('hidden');
+				});
 
-			  check();
-
+				checkTitlesWidths();
 			});
         </script>
     </body>
