@@ -23,15 +23,36 @@
 					<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
 				</span>
 			</div>							
-			<nav class='nav_titles'>
+			<nav class='navigation'>
 			  <ul class='pages-titles'>
-				<li><a href="index.html" class="active-link">Home</a></li>
-				<li><a href="index.html" class="unactive-link">Headlines</a></li>
-				<li><a href="index.html" class="unactive-link">QWERTYUIOPQWERTYUIOPQWE</a></li>
-				<li><a href="index.html" class="unactive-link">Page 2</a></li>
-				<li><a href="index.html" class="unactive-link">Page 3</a></li>
-				<li><a href="index.html" class="unactive-link">Page 4</a></li>
-				<li><a href="index.html" class="unactive-link">Page 5</a></li>
+				<li>
+					<a href="index.html" data-tooltip="Home" class="active-link title_tooltip">Home
+					</a>
+				</li>
+				<li>
+					<a href="index.html" data-tooltip="Headlines" class="unactive-link title_tooltip">Headlines
+					</a>
+				</li>
+				<li>
+					<a href="index.html" data-tooltip="QWERTYUIOPQWERTYUIOPQWE" class="unactive-link title_tooltip">QWERTYUIOPQWERTYUIOPQWE
+					</a>					
+				</li>
+				<li>
+					<a href="index.html" data-tooltip="Page 2" class="unactive-link title_tooltip">Page 2 
+					</a>
+				</li>
+				<li>
+					<a href="index.html" data-tooltip="Page 3" class="unactive-link title_tooltip">Page 3
+					</a>
+				</li>
+				<li>
+					<a href="index.html" data-tooltip="Page 4" class="unactive-link title_tooltip">Page 4
+					</a>
+				</li>
+				<li>
+					<a href="index.html" data-tooltip="Page 5" class="unactive-link title_tooltip">Page 5
+					</a>
+				</li>
 			  </ul>
 			  <button>More <i class="fa fa-angle-down" aria-hidden="true"> </i> </button>
 			  <ul class='overflow hidden'></ul>
@@ -40,7 +61,7 @@
 		<div class="burger-menu">		
 			<ul class="burger-menu__nav"> 
 				 <div class="burger-menu__close">
-					<a href="javascript:void(0)" onclick="closeMenu()"><i class="fa fa-times fa-2x close__icon"></i></a>
+					<a href="javascript:void(0)" onclick="closeMenu()"><i class="fa fa-times fa-1x close__icon"></i></a>
 				</div>
 			</ul>
 		</div>
@@ -204,11 +225,11 @@
 				$('.burger-menu__nav li').addClass('burger-menu__link');
 				$('.burger-menu__nav li').removeClass('pages-titles__link');
 				
-				var $nav = $('.nav_titles');
-				var $more_btn = $('.nav_titles button');
+				var $nav = $('.navigation');
+				var $more_btn = $('.navigation button');
 			  
-				var $titles = $('.nav_titles .pages-titles');
-				var $overflow = $('.nav_titles .overflow');
+				var $titles = $('.navigation .pages-titles');
+				var $overflow = $('.navigation .overflow');
 
 				var titlesAmount = 0;
 				var totalSpace = 0;
@@ -225,8 +246,8 @@
 				function checkTitlesWidths() {
 					availableSpace = $titles.width();
 					visibleTitles = $titles.children().length;
-					requiredSpace = widths[visibleTitles - 1];			
-									
+					requiredSpace = widths[visibleTitles - 1];		
+				
 					if (titlesAmount == visibleTitles)
 						$more_btn.hide();
 					else 
@@ -241,6 +262,7 @@
 						if (availableSpace > widths[visibleTitles]) {
 							$overflow.children().first().appendTo($titles);
 							visibleTitles += 1;
+							checkTitlesWidths();
 						}
 				}
 
