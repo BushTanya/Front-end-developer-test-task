@@ -24,38 +24,38 @@
 				</span>
 			</div>							
 			<nav class='navigation'>
-			  <ul class='pages-titles'>
-				<li>
-					<a href="index.html" data-tooltip="Home" class="active-link title_tooltip">Home
-					</a>
-				</li>
-				<li>
-					<a href="index.html" data-tooltip="Headlines" class="unactive-link title_tooltip">Headlines
-					</a>
-				</li>
-				<li>
-					<a href="index.html" data-tooltip="QWERTYUIOPQWERTYUIOPQWE" class="unactive-link title_tooltip">QWERTYUIOPQWERTYUIOPQWE
-					</a>					
-				</li>
-				<li>
-					<a href="index.html" data-tooltip="Page 2" class="unactive-link title_tooltip">Page 2 
-					</a>
-				</li>
-				<li>
-					<a href="index.html" data-tooltip="Page 3" class="unactive-link title_tooltip">Page 3
-					</a>
-				</li>
-				<li>
-					<a href="index.html" data-tooltip="Page 4" class="unactive-link title_tooltip">Page 4
-					</a>
-				</li>
-				<li>
-					<a href="index.html" data-tooltip="Page 5" class="unactive-link title_tooltip">Page 5
-					</a>
-				</li>
-			  </ul>
-			  <button>More <i class="fa fa-angle-down" aria-hidden="true"> </i> </button>
-			  <ul class='overflow hidden'></ul>
+				<ul class='navigation__pages-titles'>
+					<li>
+						<a href="index.html" Title="Home" class="active-link">Home
+						</a>
+					</li>
+					<li>
+						<a href="headlines.html" Title="Headlines" class="unactive-link">Headlines
+						</a>
+					</li>
+					<li>
+						<a href="page1.html" Title="Page With A Really-Really-Really Loooong Title" class="unactive-link">Page With A Really-Really-Really Loooong Title
+						</a>					
+					</li>
+					<li>
+						<a href="page2.html" Title="Page 2" class="unactive-link">Page 2 
+						</a>
+					</li>
+					<li>
+						<a href="page3.html" Title="Page 3" class="unactive-link">Page 3
+						</a>
+					</li>
+					<li>
+						<a href="page4.html" Title="Page 4" class="unactive-link">Page 4
+						</a>
+					</li>
+					<li>
+						<a href="page5.html" Title="Page 5" class="unactive-link">Page 5
+						</a>
+					</li>
+				</ul>
+				<button>More <i class="fa fa-angle-down" aria-hidden="true"> </i> </button>
+				<ul class='overflow hidden'></ul>
 			</nav>		
         </div>
 		<div class="burger-menu">		
@@ -221,14 +221,14 @@
             getTilesData();
 			
 			$(function() {
-				$('.pages-titles li').clone().appendTo($('.burger-menu__nav'));
+				$('.navigation__pages-titles li').clone().appendTo($('.burger-menu__nav'));
 				$('.burger-menu__nav li').addClass('burger-menu__link');
 				$('.burger-menu__nav li').removeClass('pages-titles__link');
 				
 				var $nav = $('.navigation');
 				var $more_btn = $('.navigation button');
 			  
-				var $titles = $('.navigation .pages-titles');
+				var $titles = $('.navigation .navigation__pages-titles');
 				var $overflow = $('.navigation .overflow');
 
 				var titlesAmount = 0;
