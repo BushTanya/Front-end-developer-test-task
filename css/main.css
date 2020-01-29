@@ -169,7 +169,7 @@
   .small-tile, .big-tile {
     border: 2px solid rgb(0, 0, 0);
   }
-  .icons, .pages-titles {
+  .icons, .navigation__pages-titles {
     display: none;
   }
   .main__title {
@@ -360,6 +360,7 @@ th {
 .active-link {
 	color: rgb(255, 255, 255, 1);
 	word-break: break-word;
+	font-weight: bold;
 }
 
 .unactive-link {
@@ -388,7 +389,7 @@ th {
 	margin-right: 30px;
 }
 
-.pages-titles {
+.navigation__pages-titles {
 	list-style: none;
 	display: flex;
 	justify-content: center;
@@ -396,7 +397,7 @@ th {
 	overflow: hidden;
 }
 
-.pages-titles li {
+.navigation__pages-titles li {
 	flex: none;
 	padding-left: 10px;
 	max-width: 150px;
@@ -406,37 +407,12 @@ th {
 	white-space: nowrap;
 }
 
-.pages-titles li:hover + .pages-titles li{
+.navigation__pages-titles li:hover + .navigation__pages-titles li{
 	padding-left: 100px; 
 }
 
-.pages-titles li a {
+.navigation__pages-titles li a {
 	color: black;
-}
-/*
-.title_tooltip {
-	position: relative;
-}*/
-.title_tooltip::after {
-	background: rgba(255, 255, 255, 1);
-	border-radius: 8px 8px 8px 0px;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	color: black;
-	content: attr(data-tooltip); 
-	margin-top: -24px;
-	/*left: 0;
-	top: 0;*/
-	opacity: 0; 
-	padding: 3px 7px;
-	position: absolute;
-	visibility: hidden; 	
-	transition: all 0.4s ease-in-out; 
-}
-		
-.title_tooltip:hover::after {
-	opacity: 1;
-	visibility: visible;
-	/*top: 3em;*/
 }
 
 .overflow {
