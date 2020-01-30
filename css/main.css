@@ -2,8 +2,7 @@
 	transition: margin-left .5s;
 	padding: 10px 20px 20px;
 	position: fixed;
-	top: 70px;
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 	background-color: rgb(242, 242, 242);
 	overflow-y: auto;
@@ -114,6 +113,7 @@
 /*icons and logo*/
 .company-logo {
 	float: left;
+	margin-top: 10px;	
 	width: 40px;
 	height: 40px;
 }
@@ -140,11 +140,10 @@
 
 /*sidenav styles*/
 .sidenav {
-	height: 100%;
+	height: 100vh;
 	width: 0;
 	position: fixed;
 	z-index: 1;
-	top: 70px;
 	left: 0;
 	background-color: white;
 	overflow-x: hidden;
@@ -184,8 +183,8 @@ table {
 
 th {
 	font-size: 12px;
-	padding: 2px;
-	align-content: center
+	padding: 5px;
+	white-space: nowrap;
 }
 
 .title-th {
@@ -206,12 +205,14 @@ th {
 	overflow-x: auto;
 	margin-top: 20px;
 	margin-left: 7em;
+	margin-right: 20px;
 }
 
 .result {
 	background-color: lightgray;
 	width: 40px;
 	height: 25px;
+	line-height: 25px;
 	margin: 0 auto;
 	padding-top: 2px;
 	text-align: center;
@@ -220,6 +221,7 @@ th {
 .headcol {
 	position: absolute;
 	width: 7em;
+	line-height: 1.1em;
 	left: 20px;
 }
 
@@ -260,7 +262,7 @@ th {
 
 .small-tile {
 	padding: 0px 5px 5px;
-	flex: 1;
+	flex: 1 0 0;
 }
 
 .big-tile {
@@ -321,7 +323,7 @@ th {
 	z-index: 3;
 	display: flex;
 	flex-flow: column;
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 	background-color: #2a2a2a;
 	overflow-y: auto;
@@ -334,11 +336,11 @@ th {
 	font-size: 20px;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	word-break: break-word;
+	word-wrap: break-word;
 }
 
 .burger-menu__link a:hover {
-	color: rgb(255, 255, 255, 1);
+	color: rgba(255, 255, 255, 1);
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -348,45 +350,45 @@ th {
 }
 
 .close__icon {
-	color: rgb(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.5);
 	cursor: pointer;
 }
 
 .close__icon:hover {
-	color: rgb(255, 255, 255, 1);
+	color: rgba(255, 255, 255, 1);
 	cursor: pointer;
 }
 
 .active-link {
-	color: rgb(255, 255, 255, 1);
-	word-break: break-word;
+	color: rgba(255, 255, 255, 1);
 	font-weight: bold;
 }
 
 .unactive-link {
-	color: rgb(255, 255, 255, 0.6);
+	color: rgba(255, 255, 255, 0.6);
 }
 
 /*top bar styles*/
 .main-header {
 	height: 60px;
+	line-height: 60px;
 }
 
 .navigation {
 	position: relative;
-	height: 50px;
 	display: flex;
 	align-items: center;
 	background: white;
-	margin-top: 20px;
+	flex: 1;
+	justify-content: center;
 }
 
 .navigation button {
 	background: none;
 	border: none;
 	outline: none;
-	padding-bottom: 15px;
-	margin-right: 30px;
+	padding: 0px 20px 0px 0px;
+	height: 100%;
 }
 
 .navigation__pages-titles {
@@ -395,13 +397,17 @@ th {
 	justify-content: center;
 	flex: 1;
 	overflow: hidden;
+	margin-bottom: 0;
+	padding: 0px 10px 0px 0px;
+	height: 100%;
 }
 
 .navigation__pages-titles li {
-	flex: none;
 	padding-left: 10px;
 	max-width: 150px;
+	min-width: 100px;
 	text-overflow: ellipsis;
+	text-align: center;
 	overflow: hidden;
 	cursor: pointer;
 	white-space: nowrap;
@@ -423,7 +429,6 @@ th {
 	top: 100%;
 	list-style: none;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	padding-right: 40px;
 }
 
 .overflow li a {
@@ -436,7 +441,7 @@ th {
 
 .overflow li {
 	margin: 0px 5px 5px;
-	max-width: 150px;
+	min-width: 100px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	cursor: pointer;
