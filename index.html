@@ -76,17 +76,17 @@
 				<div class="filter-block filter-panel__block">
 					<p class="filter-block__subtitle">NPS Group</p> 
 					<label class="filter-block__form-check">
-						<input type="checkbox" id="detractor" checked="checked" onchange="getTilesData()">
+						<input type="checkbox" id="detractor" checked="checked" onchange="updateTilesData()">
 						<span class="checkmark"></span>
 						<span class="label-title">Detractor</span>
 					</label>
 					<label class="filter-block__form-check">
-						<input type="checkbox" id="passive" onchange="getTilesData()">
+						<input type="checkbox" id="passive" onchange="updateTilesData()">
 						<span class="checkmark"></span>
 						<span class="label-title">Passive</span>
 					</label>
 					<label class="filter-block__form-check">
-						<input type="checkbox" id="promoter" onchange="getTilesData()">
+						<input type="checkbox" id="promoter" onchange="updateTilesData()">
 						<span class="checkmark"></span>
 						<span class="label-title">Promoter</span>
 					</label>
@@ -95,22 +95,22 @@
 				<div class="filter-block filter-panel__block">
 					<p class="filter-block__subtitle"">Product Group</p>
 					<label class="filter-block__form-check"> 
-						<input type="radio" name="radio" id="product-a" checked="checked" onchange="getTilesData()">
+						<input type="radio" name="radio" id="product-a" checked="checked" onchange="updateTilesData()">
 						<span class="radiobutton"></span>
 						<span class="label-title">Product Group A</span>
 					</label>
 					<label class="filter-block__form-check"> 
-						<input type="radio" name="radio" id="product-b" onchange="getTilesData()">
+						<input type="radio" name="radio" id="product-b" onchange="updateTilesData()">
 						<span class="radiobutton"></span>
 						<span class="label-title">Product Group B</span>
 					</label>
 					<label class="filter-block__form-check"> 
-						<input type="radio" name="radio" id="product-c" onchange="getTilesData()">
+						<input type="radio" name="radio" id="product-c" onchange="updateTilesData()">
 						<span class="radiobutton"></span>
 						<span class="label-title">Product Group C</span>
 					</label>
 					<label class="filter-block__form-check"> 
-						<input type="radio" name="radio" id="product-d" onchange="getTilesData()">
+						<input type="radio" name="radio" id="product-d" onchange="updateTilesData()">
 						<span class="radiobutton"></span>
 						<span class="label-title">Product Group D</span>
 					</label> 
@@ -129,13 +129,17 @@
                     	<div class="small-tile">
 							<div class="small-tile-info">
 								<h3 class="tile-title small-tile-info__title">NPS</h3>
-								<p id="nps-average" class="tile-data small-tile-info__title__data"></p>
+								<figure class="highcharts-figure">
+									<div id="container-nps" class="chart-container"></div>
+								</figure>								
 							</div>
                    		</div>					
 						<div class="small-tile">
 							<div class="small-tile-info">
 								<h3 class="tile-title small-tile-info__title">Overall Satisfaction</h3>
-								<p id="osat-average" class="tile-data small-tile-info__title__data"></p>
+								<figure class="highcharts-figure">
+									<div id="container-easy" class="chart-container"></div>
+								</figure>	
 							</div>
 						</div> 
                     </div>
@@ -143,13 +147,17 @@
 						<div class="small-tile">
 							<div class="small-tile-info">
 								<h3 class="tile-title small-tile-info__title">Easy</h3>
-								<p id="easy-average" class="tile-data small-tile-info__title__data"></p>
+								<figure class="highcharts-figure">
+									<div id="container-osat" class="chart-container"></div>
+								</figure>	
 							</div>
 						</div>
 						<div class="small-tile">
 							<div class="small-tile-info">
 								<h3 class="tile-title small-tile-info__title">Likely To Renew</h3>
-								<p id="ltr-average" class="tile-data small-tile-info__title__data"></p>
+								<figure class="highcharts-figure">
+									<div id="container-ltr" class="chart-container"></div>
+								</figure>	
 							</div>
 						</div>
 					</div>
@@ -211,6 +219,12 @@
 		</div>			
         <script src="data.json"></script>
         <script src="methods.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/highcharts-more.js"></script>
+		<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <script>
             'use strict';
             var dataLength = Object.keys(data).length;
@@ -218,77 +232,8 @@
             var tableValues = new Array(regions.length);
             var ascAlphSort = false, ascOsatSort = false, ascRspSort = false, ascPrdSort = false;	
 
-            getTilesData();
+            getBigTileData();
 			
-			$(function() {
-				$('.navigation__pages-titles li').clone().appendTo($('.burger-menu__nav'));
-				$('.burger-menu__nav li').addClass('burger-menu__link');
-				$('.burger-menu__nav li').removeClass('pages-titles__link');
-
-				var $more_btn = $('.navigation button');
-				
-				var $titles = $('.navigation .navigation__pages-titles');
-				var $overflow = $('.navigation .overflow');
-			
-				var titlesAmount = 0;
-				var totalSpace = 0;
-				var widths = [];
-
-				$titles.children().outerWidth(function(i, w) {
-					totalSpace += w;
-					titlesAmount += 1;
-					widths.push(totalSpace);
-				});
-
-				var  visibleTitles, availableSpace, requiredSpace;
-
-				function checkTitlesWidths() {
-					availableSpace = $titles.width();
-					visibleTitles = $titles.children().length;
-					requiredSpace = widths[visibleTitles - 1];		
-				
-					while (requiredSpace > availableSpace) {
-						$titles.children().last().prependTo($overflow);
-						visibleTitles -= 1;	
-																						
-						if (visibleTitles = 0)
-							break; 
-							
-						availableSpace = $titles.width();
-						visibleTitles = $titles.children().length;
-						requiredSpace = widths[visibleTitles - 1];
-
-					} 
-					
-					while (availableSpace > widths[visibleTitles]) {
-						$overflow.children().first().appendTo($titles);
-						visibleTitles += 1;
-																
-						if (visibleTitles == titlesAmount)
-							break;
-										
-						availableSpace = $titles.width();
-						visibleTitles = $titles.children().length;
-						requiredSpace = widths[visibleTitles - 1];					
-					}
-					
-					if (titlesAmount == visibleTitles)
-						$more_btn.hide();
-					else 
-						$more_btn.show();
-				}
-
-				$(window).resize(function() {
-					checkTitlesWidths();
-				});
-
-				$more_btn.on('click', function() {			
-					$overflow.toggleClass('hidden');
-				});
-
-				checkTitlesWidths();
-								
-			});
         </script>
     </body>
 </html>
