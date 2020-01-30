@@ -67,17 +67,17 @@
 		</div>
     </body>
 	<script>
+		'use strict';
 		$(function() {
 			$('.navigation__pages-titles li').clone().appendTo($('.burger-menu__nav'));
 			$('.burger-menu__nav li').addClass('burger-menu__link');
 			$('.burger-menu__nav li').removeClass('pages-titles__link');
-			
-			var $nav = $('.navigation');
+
 			var $more_btn = $('.navigation button');
-		  
+			
 			var $titles = $('.navigation .navigation__pages-titles');
 			var $overflow = $('.navigation .overflow');
-
+		
 			var titlesAmount = 0;
 			var totalSpace = 0;
 			var widths = [];
@@ -88,29 +88,42 @@
 				widths.push(totalSpace);
 			});
 
-			var availableSpace, visibleTitles, requiredSpace;
+			var  visibleTitles, availableSpace, requiredSpace;
 
 			function checkTitlesWidths() {
 				availableSpace = $titles.width();
 				visibleTitles = $titles.children().length;
 				requiredSpace = widths[visibleTitles - 1];		
 			
+				while (requiredSpace > availableSpace) {
+					$titles.children().last().prependTo($overflow);
+					visibleTitles -= 1;	
+																					
+					if (visibleTitles = 0)
+						break; 
+						
+					availableSpace = $titles.width();
+					visibleTitles = $titles.children().length;
+					requiredSpace = widths[visibleTitles - 1];
+
+				} 
+				
+				while (availableSpace > widths[visibleTitles]) {
+					$overflow.children().first().appendTo($titles);
+					visibleTitles += 1;
+															
+					if (visibleTitles == titlesAmount)
+						break;
+									
+					availableSpace = $titles.width();
+					visibleTitles = $titles.children().length;
+					requiredSpace = widths[visibleTitles - 1];					
+				}
+				
 				if (titlesAmount == visibleTitles)
 					$more_btn.hide();
 				else 
 					$more_btn.show();
-			
-				if (requiredSpace > availableSpace) {
-					$titles.children().last().prependTo($overflow);
-					visibleTitles -= 1;
-					checkTitlesWidths();			  
-				} 
-				else 
-					if (availableSpace > widths[visibleTitles]) {
-						$overflow.children().first().appendTo($titles);
-						visibleTitles += 1;
-						checkTitlesWidths();
-					}
 			}
 
 			$(window).resize(function() {
@@ -122,6 +135,7 @@
 			});
 
 			checkTitlesWidths();
+							
 		});
 	</script>
 </html>
