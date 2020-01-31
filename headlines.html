@@ -17,7 +17,7 @@
 			<object type="image/svg+xml" data="icon.svg" class="company-logo">
 			   Your browser does not support SVG
 			</object>  			
-			<div class="burger-menu__button" onclick="openMenu()">
+			<div class="burger-menu__button">
 				<span class="burger-menu__button-title">Menu</span>
 				<span class="burger-menu__button-icon icons">
 					<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
@@ -61,81 +61,18 @@
 		<div class="burger-menu">		
 			<ul class="burger-menu__nav"> 
 				 <div class="burger-menu__close">
-					<a href="javascript:void(0)" onclick="closeMenu()"><i class="fa fa-times fa-1x close__icon"></i></a>
+					<a href="javascript:void(0)"><i class="fa fa-times fa-1x close__icon"></i></a>
 				</div>
 			</ul>
 		</div>
     </body>
+	<script src="methods.js"></script>
 	<script>
-		'use strict';
-		$(function() {
-			$('.navigation__pages-titles li').clone().appendTo($('.burger-menu__nav'));
-			$('.burger-menu__nav li').addClass('burger-menu__link');
-			$('.burger-menu__nav li').removeClass('pages-titles__link');
-
-			var $more_btn = $('.navigation button');
+		 'use strict';
+            var dataLength = Object.keys(data).length;
+            var regions = ["Global", "EMEA", "Canada", "United States", "APAC", "S. America"];
+            var tableValues = new Array(regions.length);
+            var ascAlphSort = false, ascOsatSort = false, ascRspSort = false, ascPrdSort = false;	
 			
-			var $titles = $('.navigation .navigation__pages-titles');
-			var $overflow = $('.navigation .overflow');
-		
-			var titlesAmount = 0;
-			var totalSpace = 0;
-			var widths = [];
-
-			$titles.children().outerWidth(function(i, w) {
-				totalSpace += w;
-				titlesAmount += 1;
-				widths.push(totalSpace);
-			});
-
-			var  visibleTitles, availableSpace, requiredSpace;
-
-			function checkTitlesWidths() {
-				availableSpace = $titles.width();
-				visibleTitles = $titles.children().length;
-				requiredSpace = widths[visibleTitles - 1];		
-			
-				while (requiredSpace > availableSpace) {
-					$titles.children().last().prependTo($overflow);
-					visibleTitles -= 1;	
-																					
-					if (visibleTitles = 0)
-						break; 
-						
-					availableSpace = $titles.width();
-					visibleTitles = $titles.children().length;
-					requiredSpace = widths[visibleTitles - 1];
-
-				} 
-				
-				while (availableSpace > widths[visibleTitles]) {
-					$overflow.children().first().appendTo($titles);
-					visibleTitles += 1;
-															
-					if (visibleTitles == titlesAmount)
-						break;
-									
-					availableSpace = $titles.width();
-					visibleTitles = $titles.children().length;
-					requiredSpace = widths[visibleTitles - 1];					
-				}
-				
-				if (titlesAmount == visibleTitles)
-					$more_btn.hide();
-				else 
-					$more_btn.show();
-			}
-
-			$(window).resize(function() {
-				checkTitlesWidths();
-			});
-
-			$more_btn.on('click', function() {			
-				$overflow.toggleClass('hidden');
-			});
-
-			checkTitlesWidths();
-							
-		});
 	</script>
 </html>

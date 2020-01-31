@@ -26,7 +26,6 @@ function getBigTileData() {
             rows[i].cells[j].appendChild(insideDiv);
         }
     }
-
 }
 
 function getNpsAverageData() {
@@ -100,13 +99,13 @@ function getAverage(property, hier) {
         
 function checkNPSData(item) {
     var flagDet = false, flagPas = false, flagProm = false;
-    if (document.getElementById('detractor').checked && item >= 0 && item <= 6) {
+    if ($('#detractor:checked').length > 0 && item >= 0 && item <= 6) {
         flagDet = true;
     }
-    if (document.getElementById('passive').checked && (item == 7 || item == 8)) {
+    if ($('#passive:checked').length > 0 && (item == 7 || item == 8)) {
         flagPas = true;
     }
-    if (document.getElementById('promoter').checked && (item == 9 || item == 10)) {
+    if ($('#promoter:checked').length > 0 && (item == 9 || item == 10)) {
         flagProm = true;
     }
     return flagDet || flagPas || flagProm;
@@ -114,16 +113,16 @@ function checkNPSData(item) {
 
 function checkProductGroup(item) {
     var flagA = false, flagB = false, flagC = false, flagD = false;
-    if (document.getElementById('product-a').checked && item == "A") {
+    if ($('#product-a:checked').length > 0 && item == "A") {
         flagA = true;
     }
-    if (document.getElementById('product-b').checked && item == "B") {
+    if ($('#product-b:checked').length > 0 && item == "B") {
         flagB = true;
     }
-    if (document.getElementById('product-c').checked && item == "C") {
+    if ($('#product-c:checked').length > 0 && item == "C") {
         flagC = true;
     }
-    if (document.getElementById('product-d').checked && item == "D") {
+    if ($('#product-d:checked').length > 0 && item == "D") {
         flagD = true;
     }
     return flagA || flagB || flagC || flagD;
@@ -153,16 +152,16 @@ function sortTable(col, flag){
     var sortedArray;
     if (flag == false) {
         sortedArray = tableValues.sort(function(a, b){
-            if(a[col] < b[col]) { return -1; }
-            if(a[col] > b[col]) { return 1; }
+            if (a[col] < b[col]) { return -1; }
+            if (a[col] > b[col]) { return 1; }
             return 0;
         })
         flag = true;
     }
     else {
         sortedArray = tableValues.sort(function(a, b){
-            if(a[col] > b[col]) { return -1; }
-            if(a[col] < b[col]) { return 1; }
+            if (a[col] > b[col]) { return -1; }
+            if (a[col] < b[col]) { return 1; }
             return 0;
         })
         flag = false;
@@ -188,34 +187,81 @@ function sortTablePrd() {
 }
 
 function openNav() {
-    document.getElementsByClassName("sidenav")[0].style.width = "200px";
-	document.getElementsByClassName("flex-container")[0].style.margin = "0";
-    document.getElementsByClassName("main")[0].style.marginLeft = "200px";
+	$('.sidenav').css({"width" : "200px"});
+	$('.main').css({"margin-left": "200px"});
+	$('.flex-container').css({"margin" : "0"}); 
 }
 
 function closeNav() {
-    document.getElementsByClassName("sidenav")[0].style.width = "0";
-    document.getElementsByClassName("main")[0].style.marginLeft = "0";
-    document.getElementsByClassName("flex-container")[0].style.margin  = "auto";           
-}
-
-function openMenu() {
-	document.getElementsByClassName("burger-menu")[0].style.display  = "inline"; 
+	$('.sidenav').css({"width" : "0"});
+	$('.main').css({"margin-left": "0"});
+	$('.flex-container').css({"margin" : "auto"});          
 }
 
 function closeMenu() {
-	document.getElementsByClassName("burger-menu")[0].style.display  = "none"; 
+	$('.burger-menu').css({"display" : "none"});
+}
+
+function openMenu() {
+	$('.burger-menu').css({"display" : "inline"});
 }
 
 function updateTilesData() {
 	$.updateTilesData();				
 };
 
+function setFiltersPrintData() {
+	let filtersNpsPrint = $('.filters-print__nps-info');
+	let filtersProductPrint = $('.filters-print__product-info');
+	
+	let nps = getCheckedNPS();
+	let group = getCheckedProductGroup();
+	
+	filtersNpsPrint.text(nps);
+	filtersProductPrint.text(group);
+}
+
+function getCheckedNPS() {	
+	let nps = "";
+	
+	if ($('#detractor:checked').length > 0)
+		nps += " Detractor";
+	
+	if ($('#passive:checked').length > 0)
+		nps += ", Passive";
+	
+	if ($('#promoter:checked').length > 0)
+		nps += ", Promoter";
+	
+	if (nps == "")
+		nps += "none";
+	
+	return nps;
+}
+
+function getCheckedProductGroup() {	
+	let group = "";
+
+	if ($('#product-a:checked').length > 0)
+		group += " Product Group A";
+	
+	if ($('#product-b:checked').length > 0)
+		group += " Product Group B";
+	
+	if ($('#product-c:checked').length > 0)
+		group += " Product Group C";
+
+	if ($('#product-d:checked').length > 0)
+		group += " Product Group D";	
+	
+	return group;
+}
+
 $(function() {
 	$('.navigation__pages-titles li').clone().appendTo($('.burger-menu__nav'));
 	$('.burger-menu__nav li').addClass('burger-menu__link');
 	$('.burger-menu__nav li').removeClass('pages-titles__link');
-
+	
 	var $more_btn = $('.navigation button');
 	
 	var $titles = $('.navigation .navigation__pages-titles');
@@ -232,6 +278,10 @@ $(function() {
 	});
 
 	var  visibleTitles, availableSpace, requiredSpace;
+	
+	setFiltersPrintData();
+	getBigTileData();
+	checkTitlesWidths();
 
 	function checkTitlesWidths() {
 		availableSpace = $titles.width();
@@ -276,9 +326,67 @@ $(function() {
 	$more_btn.on('click', function() {			
 		$overflow.toggleClass('hidden');
 	});
-
-	checkTitlesWidths();
-		
+	
+	$('.burger-menu__button').on('click', function() {			
+		openMenu();
+	});
+	
+	$('.burger-menu__close').on('click', function() {			
+		closeMenu();
+	});
+	
+	$('.headcol').on('click', function() {			
+		sortTableAlphabetically();
+	});
+	
+	$('.main__icons').on('click', function() {			
+		openNav();
+	});
+	
+	$('.close-icon').on('click', function() {			
+		closeNav();
+	});
+	
+	$('#sort-osat').on('click', function() {			
+		sortTableOsat();
+	});
+	
+	$('#sort-rsp').on('click', function() {			
+		sortTableRsp();
+	});
+	
+	$('#sort-prd').on('click', function() {			
+		sortTablePrd();
+	});
+	
+	$('#detractor').on('change', function() {
+		updateTilesData();
+	});
+	
+	$('#passive').on('change', function() {
+		updateTilesData();
+	});
+	
+	$('#promoter').on('change', function() {
+		updateTilesData();
+	});
+	
+	$('#product-a').on('change', function() {
+		updateTilesData();
+	});
+	
+	$('#product-b').on('change', function() {
+		updateTilesData();
+	});
+	
+	$('#product-c').on('change', function() {
+		updateTilesData();
+	});
+	
+	$('#product-d').on('change', function() {
+		updateTilesData();
+	});
+	
 	var gaugeOptions = {
 		chart: {
 			type: 'solidgauge'
@@ -493,6 +601,7 @@ $(function() {
 		}, true);
 		
 		getBigTileData();
+		setFiltersPrintData();
 	};
-		 
+	
 });

@@ -17,7 +17,7 @@
 			<object type="image/svg+xml" data="icon.svg" class="company-logo">
 			   Your browser does not support SVG
 			</object>  			
-			<div class="burger-menu__button" onclick="openMenu()">
+			<div class="burger-menu__button">
 				<span class="burger-menu__button-title">Menu</span>
 				<span class="burger-menu__button-icon icons">
 					<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
@@ -61,7 +61,7 @@
 		<div class="burger-menu">		
 			<ul class="burger-menu__nav"> 
 				 <div class="burger-menu__close">
-					<a href="javascript:void(0)" onclick="closeMenu()"><i class="fa fa-times fa-1x close__icon"></i></a>
+					<a href="javascript:void(0)"><i class="fa fa-times fa-1x close__icon"></i></a>
 				</div>
 			</ul>
 		</div>
@@ -69,24 +69,24 @@
             <div class="filter-title-container">    
 				<h6 class="filter-title-container__title">Filters</h6>             
                 <div class="close-icon">
-                    <a href="javascript:void(0)" onclick="closeNav()"><i class="fa fa-times icons"></i></a>
+                    <a href="javascript:void(0)"><i class="fa fa-times icons"></i></a>
                 </div>
             </div>
 			<div class="filter-panel">
 				<div class="filter-block filter-panel__block">
 					<p class="filter-block__subtitle">NPS Group</p> 
 					<label class="filter-block__form-check">
-						<input type="checkbox" id="detractor" checked="checked" onchange="updateTilesData()">
+						<input type="checkbox" id="detractor" checked="checked">
 						<span class="checkmark"></span>
 						<span class="label-title">Detractor</span>
 					</label>
 					<label class="filter-block__form-check">
-						<input type="checkbox" id="passive" onchange="updateTilesData()">
+						<input type="checkbox" id="passive">
 						<span class="checkmark"></span>
 						<span class="label-title">Passive</span>
 					</label>
 					<label class="filter-block__form-check">
-						<input type="checkbox" id="promoter" onchange="updateTilesData()">
+						<input type="checkbox" id="promoter">
 						<span class="checkmark"></span>
 						<span class="label-title">Promoter</span>
 					</label>
@@ -95,22 +95,22 @@
 				<div class="filter-block filter-panel__block">
 					<p class="filter-block__subtitle"">Product Group</p>
 					<label class="filter-block__form-check"> 
-						<input type="radio" name="radio" id="product-a" checked="checked" onchange="updateTilesData()">
+						<input type="radio" name="radio" id="product-a" checked="checked">
 						<span class="radiobutton"></span>
 						<span class="label-title">Product Group A</span>
 					</label>
 					<label class="filter-block__form-check"> 
-						<input type="radio" name="radio" id="product-b" onchange="updateTilesData()">
+						<input type="radio" name="radio" id="product-b">
 						<span class="radiobutton"></span>
 						<span class="label-title">Product Group B</span>
 					</label>
 					<label class="filter-block__form-check"> 
-						<input type="radio" name="radio" id="product-c" onchange="updateTilesData()">
+						<input type="radio" name="radio" id="product-c">
 						<span class="radiobutton"></span>
 						<span class="label-title">Product Group C</span>
 					</label>
 					<label class="filter-block__form-check"> 
-						<input type="radio" name="radio" id="product-d" onchange="updateTilesData()">
+						<input type="radio" name="radio" id="product-d">
 						<span class="radiobutton"></span>
 						<span class="label-title">Product Group D</span>
 					</label> 
@@ -118,12 +118,16 @@
 			</div>
         </div>
         <div class="main">
-            <span onclick="openNav()" class="main__icons icons">
+            <span class="main__icons icons">
                 <i class="fa fa-angle-left"></i>
                 <i class="fa fa-filter"></i>
             </span>  
             <h5 class="main__title">Performance & Drivers</h5>
             <div class="main__container">
+				<div class="filters-print">
+					<p class="filters-print__title">NPS Group: <span class="filters-print__nps-info"></span></p>
+					<p class="filters-print__title">Product Group: <span class="filters-print__product-info"></span></p>
+				</div>
                 <div class="flex-container">	
                 	<div class="small-tiles-container">
                     	<div class="small-tile">
@@ -166,55 +170,59 @@
 							<div class="big-tile-info">
 								<h3 class="tile-title big-tile-info__title">Team Performance</h3>						
 								<div class="table-wrap big-tile-info__table">
-									<table class="team-perf-table">						
-										<tr>
-											<th class="headcol"><a href="javascript:void(0)" onclick="sortTableAlphabetically()"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
-											<th class="table-header" onclick="sortTableOsat()">Overall <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-											<th class="table-header" onclick="sortTableRsp()">Responsiveness <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-											<th class="table-header" onclick="sortTablePrd()">Product knowledge <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
-										</tr>								
-										<tr>
-											<th class="title-th headcol">Global</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										<tr>
-											<th class="title-th headcol">EMEA</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										<tr>
-											<th class="title-th headcol">Canada</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										<tr>
-											<th class="title-th headcol">United States</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										<tr>
-											<th class="title-th headcol">APAC</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>
-										<tr>
-											<th class="title-th headcol">S. America</th>
-											<th></th>
-											<th></th>
-											<th></th>
-										</tr>								
+									<table class="team-perf-table">	
+										<thead>							
+											<tr>
+												<th class="headcol"><a href="javascript:void(0)"><i class="fa fa-sort" aria-hidden="true"></i></a></th>
+												<th class="table-header" id="sort-osat">Overall <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+												<th class="table-header" id="sort-rsp">Responsiveness <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+												<th class="table-header" id="sort-prd">Product knowledge <i class="fa fa-sort sort-icon" aria-hidden="true"></th>
+											</tr>		
+										</thead>
+										<tbody>										
+											<tr>
+												<th class="title-th headcol">Global</th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</tr>
+											<tr>
+												<th class="title-th headcol">EMEA</th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</tr>
+											<tr>
+												<th class="title-th headcol">Canada</th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</tr>
+											<tr>
+												<th class="title-th headcol">United States</th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</tr>
+											<tr>
+												<th class="title-th headcol">APAC</th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</tr>
+											<tr>
+												<th class="title-th headcol">S. America</th>
+												<th></th>
+												<th></th>
+												<th></th>
+											</tr>
+										</tbody>										
 									</table>								
 								</div>
 							</div>
 						</div>
 					</div>
-                </div> 
+                </div>
 			</div>	
 		</div>			
         <script src="data.json"></script>
@@ -231,8 +239,6 @@
             var regions = ["Global", "EMEA", "Canada", "United States", "APAC", "S. America"];
             var tableValues = new Array(regions.length);
             var ascAlphSort = false, ascOsatSort = false, ascRspSort = false, ascPrdSort = false;	
-
-            getBigTileData();
 			
         </script>
     </body>
