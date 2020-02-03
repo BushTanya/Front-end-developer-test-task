@@ -247,37 +247,40 @@ function getCheckedProductGroup() {
 	return group;
 }
 
-$(function() {
+function setBurgerMenuLinks() {
 	$('.navigation__pages-titles li').clone().appendTo($('.burger-menu__nav'));
 	$('.burger-menu__nav li').addClass('burger-menu__link');
 	$('.burger-menu__nav li').removeClass('pages-titles__link');
-	
-	var $more_btn = $('.navigation button');
-	
-	var $titles = $('.navigation .navigation__pages-titles');
-	var $overflow = $('.navigation .overflow');
+}
+
+
+$(function() {
+	setBurgerMenuLinks();
+	setFiltersPrintData();
+	getBigTileData();
 
 	var titlesAmount = 0;
 	var totalSpace = 0;
 	var widths = [];
 
-	$titles.children().outerWidth(function(i, w) {
+	$('.navigation .navigation__pages-titles').children().outerWidth(function(i, w) {
 		totalSpace += w;
 		titlesAmount += 1;
 		widths.push(totalSpace);
 	});
-
-	var  visibleTitles, availableSpace, requiredSpace;
 	
-	setFiltersPrintData();
-	getBigTileData();
 	checkTitlesWidths();
-
+	
 	function checkTitlesWidths() {
+		var $titles = $('.navigation .navigation__pages-titles');
+		var $overflow = $('.navigation .overflow');
+		
+		var  visibleTitles, availableSpace, requiredSpace;
+		
 		availableSpace = $titles.width();
 		visibleTitles = $titles.children().length;
 		requiredSpace = widths[visibleTitles - 1];		
-	
+
 		while (requiredSpace > availableSpace) {
 			$titles.children().last().prependTo($overflow);
 			visibleTitles -= 1;	
@@ -288,7 +291,6 @@ $(function() {
 			availableSpace = $titles.width();
 			visibleTitles = $titles.children().length;
 			requiredSpace = widths[visibleTitles - 1];
-
 		} 
 		
 		while (availableSpace > widths[visibleTitles]) {
@@ -304,17 +306,17 @@ $(function() {
 		}
 		
 		if (titlesAmount == visibleTitles)
-			$more_btn.hide();
+			$('.navigation button').hide();
 		else 
-			$more_btn.show();
+			$('.navigation button').show();
 	}
 
 	$(window).resize(function() {
 		checkTitlesWidths();
 	});
 
-	$more_btn.on('click', function() {			
-		$overflow.toggleClass('hidden');
+	$('.navigation button').on('click', function() {			
+		$('.navigation .overflow').toggleClass('hidden');
 	});
 	
 	$('.burger-menu__button').on('click', function() {			
