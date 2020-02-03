@@ -1,7 +1,7 @@
 function getBigTileData() {
     if (dataLength === undefined || dataLength == 0)
         return; 
-
+	
     for (let i = 0; i < tableValues.length; i++) {
         tableValues[i] = new Array(4);
 
@@ -10,22 +10,17 @@ function getBigTileData() {
         tableValues[i][2] = getAverage("rsp", regions[i]);
         tableValues[i][3] = getAverage("prd", regions[i]);
     }
-
-    var table = document.getElementsByClassName("team-perf-table")[0];
-    var rows = table.rows;
-
-    for (let i = 1; i < rows.length; i++) {
-        for (let j = 1; j < rows[i].cells.length; j++) {
-            var insideDiv = document.createElement("div");
-            setElementStyle(insideDiv, tableValues[i-1][j]);
-
-            while (rows[i].cells[j].firstChild) {
-                rows[i].cells[j].removeChild(rows[i].cells[j].firstChild);
-            }
-            
-            rows[i].cells[j].appendChild(insideDiv);
-        }
-    }
+	
+	$('.team-perf-table > tbody  > tr').each(function(index, tr) { 
+		var $ths = $(this).find('th');
+			
+		for (let j = 1; j < $ths.length; j++) {
+			$ths.eq(j).children().remove();		
+			$ths.eq(j).append('<div></div>');  
+			
+			setElementStyle($ths.eq(j).children('div'), tableValues[index][j])
+		}
+	});
 }
 
 function getNpsAverageData() {
@@ -59,25 +54,21 @@ function getLtrAverageData() {
 }
 
 function setSortedTable(sortedTable) {
-    var table = document.getElementsByClassName("team-perf-table")[0];
-    var rows = table.rows;
-
-    for (let i = 1; i < rows.length; i++) {
-        for (let j = 0; j < rows[i].cells.length; j++) {
-            if (j == 0) {
-                rows[i].cells[j].innerHTML = sortedTable[i-1][j];
+	$('.team-perf-table > tbody  > tr').each(function(index, tr) { 
+		var $ths = $(this).find('th');
+			
+		for (let j = 0; j < $ths.length; j++) {
+			if (j == 0) {
+                $ths.eq(j).html(sortedTable[index][j]);
                 continue;
             }
-            var insideDiv = document.createElement("div");
-            setElementStyle(insideDiv, sortedTable[i-1][j]);
-
-            while (rows[i].cells[j].firstChild) {
-                rows[i].cells[j].removeChild(rows[i].cells[j].firstChild);
-            }
-
-            rows[i].cells[j].appendChild(insideDiv);
-        }
-    }          
+			
+			$ths.eq(j).children().remove();		
+			$ths.eq(j).append('<div></div>');  
+			
+			setElementStyle($ths.eq(j).children('div'), tableValues[index][j])
+		}
+	});	
 }
 
 function getAverage(property, hier) {
@@ -138,14 +129,13 @@ function checkHier(hier, item) {
 }
 
 function setElementStyle(element, val) {
-    element.innerHTML = val;
-    element.classList.add("result");
-
-    if (val >= 7.0)
-        element.style.backgroundColor = "rgb(179, 255, 217)";
+	element.html(val);
+	element.addClass('result');
+	
+	if (val >= 7.0)
+		element.css({"background-color" : "rgb(179, 255, 217)"});
     if (val <= 5.0)
-        element.style.backgroundColor = "rgb(255, 179, 179)";
-
+        element.css({"background-color" : "rgb(255, 179, 179)"});
 }
 
 function sortTable(col, flag){
