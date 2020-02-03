@@ -1,3 +1,4 @@
+/*get and sort tiles data*/
 function getBigTileData() {
     if (dataLength === undefined || dataLength == 0)
         return; 
@@ -176,30 +177,11 @@ function sortTablePrd() {
     ascPrdSort = sortTable(3, ascPrdSort);
 }
 
-function openNav() {
-	$('.sidenav').css({"width" : "200px"});
-	$('.main').css({"margin-left": "200px"});
-	$('.flex-container').css({"margin" : "0"}); 
-}
-
-function closeNav() {
-	$('.sidenav').css({"width" : "0"});
-	$('.main').css({"margin-left": "0"});
-	$('.flex-container').css({"margin" : "auto"});          
-}
-
-function closeMenu() {
-	$('.burger-menu').css({"display" : "none"});
-}
-
-function openMenu() {
-	$('.burger-menu').css({"display" : "inline"});
-}
-
 function updateTilesData() {
 	$.updateTilesData();				
 };
 
+/*get filters data*/
 function setFiltersPrintData() {
 	let filtersNpsPrint = $('.filters-print__nps-info');
 	let filtersProductPrint = $('.filters-print__product-info');
@@ -247,12 +229,72 @@ function getCheckedProductGroup() {
 	return group;
 }
 
+/*open/close/edit navigation*/
+function openNav() {
+	$('.sidenav').css({"width" : "200px"});
+	$('.main').css({"margin-left": "200px"});
+	$('.flex-container').css({"margin" : "0"}); 
+}
+
+function closeNav() {
+	$('.sidenav').css({"width" : "0"});
+	$('.main').css({"margin-left": "0"});
+	$('.flex-container').css({"margin" : "auto"});          
+}
+
+function closeMenu() {
+	$('.burger-menu').css({"display" : "none"});
+}
+
+function openMenu() {
+	$('.burger-menu').css({"display" : "inline"});
+}
+
 function setBurgerMenuLinks() {
 	$('.navigation__pages-titles li').clone().appendTo($('.burger-menu__nav'));
 	$('.burger-menu__nav li').addClass('burger-menu__link');
 	$('.burger-menu__nav li').removeClass('pages-titles__link');
 }
 
+function checkTitlesWidths(widths, titlesAmount) {
+	var $titles = $('.navigation .navigation__pages-titles');
+	var $overflow = $('.navigation .overflow');
+	
+	var visibleTitles, availableSpace, requiredSpace;
+	
+	availableSpace = $titles.width();
+	visibleTitles = $titles.children().length;
+	requiredSpace = widths[visibleTitles - 1];		
+
+	while (requiredSpace > availableSpace) {
+		$titles.children().last().prependTo($overflow);
+		visibleTitles -= 1;	
+																		
+		if (visibleTitles = 0)
+			break; 
+			
+		availableSpace = $titles.width();
+		visibleTitles = $titles.children().length;
+		requiredSpace = widths[visibleTitles - 1];
+	} 
+	
+	while (availableSpace > widths[visibleTitles]) {
+		$overflow.children().first().appendTo($titles);
+		visibleTitles += 1;
+												
+		if (visibleTitles == titlesAmount)
+			break;
+						
+		availableSpace = $titles.width();
+		visibleTitles = $titles.children().length;
+		requiredSpace = widths[visibleTitles - 1];					
+	}
+	
+	if (titlesAmount == visibleTitles)
+		$('.navigation button').hide();
+	else 
+		$('.navigation button').show();
+}
 
 $(function() {
 	setBurgerMenuLinks();
@@ -269,50 +311,10 @@ $(function() {
 		widths.push(totalSpace);
 	});
 	
-	checkTitlesWidths();
+	checkTitlesWidths(widths, titlesAmount);
 	
-	function checkTitlesWidths() {
-		var $titles = $('.navigation .navigation__pages-titles');
-		var $overflow = $('.navigation .overflow');
-		
-		var  visibleTitles, availableSpace, requiredSpace;
-		
-		availableSpace = $titles.width();
-		visibleTitles = $titles.children().length;
-		requiredSpace = widths[visibleTitles - 1];		
-
-		while (requiredSpace > availableSpace) {
-			$titles.children().last().prependTo($overflow);
-			visibleTitles -= 1;	
-																			
-			if (visibleTitles = 0)
-				break; 
-				
-			availableSpace = $titles.width();
-			visibleTitles = $titles.children().length;
-			requiredSpace = widths[visibleTitles - 1];
-		} 
-		
-		while (availableSpace > widths[visibleTitles]) {
-			$overflow.children().first().appendTo($titles);
-			visibleTitles += 1;
-													
-			if (visibleTitles == titlesAmount)
-				break;
-							
-			availableSpace = $titles.width();
-			visibleTitles = $titles.children().length;
-			requiredSpace = widths[visibleTitles - 1];					
-		}
-		
-		if (titlesAmount == visibleTitles)
-			$('.navigation button').hide();
-		else 
-			$('.navigation button').show();
-	}
-
 	$(window).resize(function() {
-		checkTitlesWidths();
+		checkTitlesWidths(widths, titlesAmount);
 	});
 
 	$('.navigation button').on('click', function() {			
