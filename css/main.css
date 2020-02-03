@@ -474,6 +474,8 @@ th {
 		background-color: white;
 		-webkit-print-color-adjust: exact; 
 		margin: auto !important;
+		
+		overflow: visible;
 	}
 	
 	.flex-container {
@@ -500,5 +502,4 @@ th {
 	.filters-print {
 		display: block;
 	}
-	
 }
