@@ -511,6 +511,10 @@ th {
 }
 
 .grid-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 	height: 250px;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	margin: 10px;
@@ -540,8 +544,16 @@ th {
 	grid-row-end: span 2;
 }
 
+.grid-item__title {
+	font-weight: bold;
+}
+
 @media screen and (max-width: 624px) {
   .grid-item__5 {
     grid-column: auto;
   }
+}
+
+.gaugeBackground {
+  fill: #ddd;
 }
