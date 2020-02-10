@@ -67,23 +67,37 @@
 		</div>
 		<div class="grid-container">		
 			<div  class="grid-column">
-				<div class="grid-item grid-item__1">One</div>
-				<div class="grid-item grid-item__2">Two</div>
+				<div class="grid-item grid-item__1">
+					<div class="grid-item__title">One</div>
+				</div>
+				<div class="grid-item grid-item__2">
+					<div class="grid-item__title">Two</div>
+				</div>
 			</div>
 			<div  class="grid-column">
-				<div class="grid-item grid-item__3">Three</div>
-				<div class="grid-item grid-item__4">Four</div>
+				<div class="grid-item grid-item__3">
+					<div class="grid-item__title">Three</div>
+				</div>
+				<div class="grid-item grid-item__4">
+					<div class="grid-item__title">Four</div>
+				</div>
 			</div>
-			<div class="grid-item grid-item__5">Five</div>
+			<div class="grid-item grid-item__5">
+				<div class="grid-item__title">Five</div>
+			</div>
 		</div>		
     </body>
 	<script src="methods.js"></script>
 	<script src="data.json"></script>
+	<script src="http://d3js.org/d3.v3.min.js"> </script>
+	<script src="d3_gauge.js"></script>
 	<script>
 		 'use strict';
             var dataLength = Object.keys(data).length;
             var regions = ["Global", "EMEA", "Canada", "United States", "APAC", "S. America"];
             var tableValues = new Array(regions.length);
-            var ascAlphSort = false, ascOsatSort = false, ascRspSort = false, ascPrdSort = false;		
+            var ascAlphSort = false, ascOsatSort = false, ascRspSort = false, ascPrdSort = false;
+
+			
 	</script>
 </html>
